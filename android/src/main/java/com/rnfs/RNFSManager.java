@@ -81,7 +81,8 @@ public class RNFSManager extends ReactContextBaseJavaModule {
 
   private String getOriginalFilepath(String filepath) throws IORejectionException {
     Uri uri = getFileUri(filepath);
-    String originalFilepath = "";
+	//if filepath is the actual original path just return it
+    String originalFilepath = filepath;
     if (uri.getScheme().equals("content")) {
       try {
         Cursor cursor = reactContext.getContentResolver().query(uri, null, null, null, null);
